@@ -7,7 +7,8 @@ def convert_vbb_to_yolo(vbb_path, output_dir, image_width=640, image_height=480)
    vbb = loadmat(vbb_path)
    obj_lists = vbb['A'][0][0][1][0]  # objLists
    n_frames = vbb['A'][0][0][0][0][0]  # nFrame
-
+   obj_labels = vbb['A'][0][0][4][0]  # get objects label
+   label_map = [str(x[0]) for x in obj_labels]
 
    abs_output_dir = os.path.abspath(output_dir)
    os.makedirs(abs_output_dir, exist_ok=True)
@@ -24,8 +25,21 @@ def convert_vbb_to_yolo(vbb_path, output_dir, image_width=640, image_height=480)
 
 
        for obj in objs:
+           id_ = obj[0][0][0]
+           label = label_map[id_ - 1]
+
+           if label != 'person':  # only keep 'person'
+              continue
+
+           occluded = obj[3][0][0]  # ingnore occluded ones
+           if occluded:
+              continue
+
            pos = obj[1][0]  # [x, y, w, h]
            x, y, w, h = pos
+                       
+           if w * h < 10:  # small object filter
+                continue
 
 
            # Convert to YOLO format (center x/y, normalized)
