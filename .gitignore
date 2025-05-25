@@ -1,0 +1,11 @@
+# Ignore Python virtual environment
+venv/
+
+# Ignore datasets and large output files
+datasets/
+*.pt
+runs/
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc

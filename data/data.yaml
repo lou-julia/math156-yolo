@@ -1,0 +1,8 @@
+# data.yaml
+# YOLOv5 dataset configuration
+
+train: ../datasets/images/train
+val: ../datasets/images/val
+
+nc: 1
+names: ['pedestrian']
