@@ -66,6 +66,7 @@ for epoch in range(epochs):
         total_loss += loss.item()
     
     scheduler.step()  # apply learning rate decay
+    print(f"✅ Completed epoch {epoch + 1}/{epochs}") 
     print(f"Epoch {epoch+1}/{epochs}, Loss: {total_loss:.4f}")
 
 # Save the trained model weights
