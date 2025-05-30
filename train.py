@@ -24,7 +24,7 @@ def init_weights(m):
 model.apply(init_weights)
 
 # Set image resolution to higher value for small object detection (e.g. pedestrians)
-img_size = 832
+img_size = 640
 
 # Load training data using our custom dataset class
 train_dataset = YOLODataset(
