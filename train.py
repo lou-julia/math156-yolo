@@ -43,11 +43,17 @@ scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=3, gamma=0.5)  
 
 # Simple YOLO-style loss (Mean Squared Error loss for x, y, w, h, objectness, class score)
 def yolo_loss(pred, targets):
+    #Pred and Target are Python lists so convert both to tensors before slicing them like tensors
+    pred = torch.tensor(pred).float()
+    targets = torch.tensor(targets).float()
+
     mse = nn.MSELoss()
-    loss_xy = mse(pred[:, 0:2], targets[:, 0:2])       # center x, y
-    loss_wh = mse(pred[:, 2:4], targets[:, 2:4])       # width, height
-    loss_obj = mse(pred[:, 4], targets[:, 4])          # objectness
-    loss_cls = mse(pred[:, 5], targets[:, 5])          # class score
+    bce = nn.BCEWithLogitsLoss()
+
+    loss_xy = mse(pred[:, 0:2], targets[:, 0:2])       # x, y
+    loss_wh = mse(pred[:, 2:4], targets[:, 2:4])       # w, h
+    loss_obj = bce(pred[:, 4], targets[:, 4])          # objectness
+    loss_cls = bce(pred[:, 5], targets[:, 5])          # class score
 
     return loss_xy + loss_wh + loss_obj + loss_cls
 
