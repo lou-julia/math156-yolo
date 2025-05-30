@@ -39,7 +39,7 @@ class YOLODataset(Dataset):
             with open(label_path, 'r') as f:
                 for line in f:
                     vals = list(map(float, line.strip().split()))  # [class, x, y, w, h]
-                    labels.append([idx] + vals)  # Add image index in front
+                    labels.append([0.0] + vals)  # ⚠️ Add dummy image index 0.0 for ComputeLoss compatibility
 
         labels = torch.tensor(labels, dtype=torch.float32) if labels else torch.zeros((0, 6), dtype=torch.float32)
 
