@@ -1,5 +1,5 @@
 # infer.py
-# Custom inference script with annotation saving + precision/recall evaluation
+# Custom inference script with annotation
 
 import os
 import cv2
