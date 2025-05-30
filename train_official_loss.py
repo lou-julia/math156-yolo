@@ -6,7 +6,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
-from custom_yolo_dataset import YOLODataset
+from penny_custom_yolo_dataset import YOLODataset
 from yolov5.models.yolo import Model
 from yolov5.utils.loss import ComputeLoss  # ✅ 官方 loss
 
