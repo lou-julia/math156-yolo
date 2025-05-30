@@ -26,7 +26,7 @@ os.makedirs(output_img_dir, exist_ok=True)
 os.makedirs(output_txt_dir, exist_ok=True)
 
 # Inference settings
-img_size = 832
+img_size = 640
 conf_thres = 0.25
 iou_thres = 0.3
 
