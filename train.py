@@ -40,9 +40,17 @@ train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
 optimizer = optim.SGD(model.parameters(), lr=0.005, momentum=0.9)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=3, gamma=0.5)  # LR halves every 3 epochs
 
-# Simple placeholder loss 
+
+# Simple YOLO-style loss (Mean Squared Error loss for x, y, w, h, objectness, class score)
 def yolo_loss(pred, targets):
-    return pred[0].sum() * 0.0  # dummy loss, for structure only
+    mse = nn.MSELoss()
+    loss_xy = mse(pred[:, 0:2], targets[:, 0:2])       # center x, y
+    loss_wh = mse(pred[:, 2:4], targets[:, 2:4])       # width, height
+    loss_obj = mse(pred[:, 4], targets[:, 4])          # objectness
+    loss_cls = mse(pred[:, 5], targets[:, 5])          # class score
+
+    return loss_xy + loss_wh + loss_obj + loss_cls
+
 
 # Training loop
 epochs = 5  
