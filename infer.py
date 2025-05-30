@@ -6,7 +6,7 @@ import cv2
 import torch
 import numpy as np
 from yolov5.models.yolo import Model
-from yolov5.utils.general import non_max_suppression, scale_coords
+from yolov5.utils.general import non_max_suppression  # removed scale_coords
 from yolov5.utils.datasets import letterbox
 from yolov5.utils.plots import plot_boxes
 
@@ -62,6 +62,27 @@ def load_ground_truth(txt_path, img_shape):
             y2 = (y + bh / 2) * h
             boxes.append([x1, y1, x2, y2])
     return boxes
+
+# Define missing scale_coords function
+def scale_coords(img1_shape, coords, img0_shape, ratio_pad=None):
+    """Rescale coords (xyxy) from img1_shape to img0_shape."""
+    if ratio_pad is None:
+        # Calculate from shapes
+        gain = min(img1_shape[0] / img0_shape[0], img1_shape[1] / img0_shape[1])
+        pad = ((img1_shape[1] - img0_shape[1] * gain) / 2,
+               (img1_shape[0] - img0_shape[0] * gain) / 2)  # width, height
+    else:
+        gain = ratio_pad[0][0]
+        pad = ratio_pad[1]
+
+    coords[:, [0, 2]] -= pad[0]  # x padding
+    coords[:, [1, 3]] -= pad[1]  # y padding
+    coords[:, :4] /= gain
+    coords[:, 0].clamp_(0, img0_shape[1])  # x1
+    coords[:, 1].clamp_(0, img0_shape[0])  # y1
+    coords[:, 2].clamp_(0, img0_shape[1])  # x2
+    coords[:, 3].clamp_(0, img0_shape[0])  # y2
+    return coords
 
 # Inference loop
 for filename in os.listdir(image_dir):
@@ -129,3 +150,4 @@ print(f"\n✅ Inference complete. Results saved to 'inference_output/'")
 print(f"🔍 Precision: {precision:.4f}")
 print(f"📦 Recall:    {recall:.4f}")
 print(f"TP: {tp}, FP: {fp}, FN: {fn}")
+
