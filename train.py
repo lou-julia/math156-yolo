@@ -61,7 +61,6 @@ for epoch in range(epochs):
         loss.backward()
         optimizer.step()
         
-    print(f"✅ Completed epoch {epoch + 1}/{epochs}") 
 
         total_loss += loss.item()
     
