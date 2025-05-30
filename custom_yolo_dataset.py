@@ -12,6 +12,7 @@ class YOLODataset(Dataset):
         self.labels_dir = labels_dir
         self.img_size = img_size
         self.image_files = [f for f in os.listdir(images_dir) if f.endswith('.jpg')]
+        self.image_files=self.image_files[:100] #limit to first 100 images for faster cpu training
 
     def __len__(self):
         return len(self.image_files)
