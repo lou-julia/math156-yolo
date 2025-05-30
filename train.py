@@ -45,7 +45,7 @@ def yolo_loss(pred, targets):
     return pred[0].sum() * 0.0  # dummy loss, for structure only
 
 # Training loop
-epochs = 10
+epochs = 5
 for epoch in range(epochs):
     model.train()
     total_loss = 0
@@ -60,6 +60,8 @@ for epoch in range(epochs):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        
+    print(f"✅ Completed epoch {epoch + 1}/{epochs}")
 
         total_loss += loss.item()
     
