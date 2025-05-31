@@ -4,7 +4,10 @@
 Our code runs on the CalTech Pedestrians Dataset, which is accessible at https://data.caltech.edu/records/f6rph-90m20. The files to download are data_and_labels.zip and CaltechPedestrians.zip.
 
 ### Preprocessing steps:
-The data is provided in a pre-split format, with separate .seq files for training and testing, along with corresponding annotation files in .vbb format. For model training, we converted the .vbb files into YOLO-compatible .txt label files with "Parse vbb to txt" and extracted the video frames from the .seq files into .jpg images using "extract_frames_from_seq edited".
+The data is provided in a pre-split format, with separate .seq files for training and testing, along with corresponding annotation files in .vbb format.
+1. Convert the .vbb files into YOLO-compatible .txt label files with "parse_vbb_to_txt.py".
+2. Extract the video frames from the .seq files into .jpg images with "extract_frames_from_seq_edited.py".
+3. 
 
 ### Stuff you dont need to worry about:
 - YOLOv5 (All Caps) folder: Source code from the yolov5 repository. 
