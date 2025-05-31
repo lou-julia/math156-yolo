@@ -6,7 +6,7 @@ Our code runs on the CalTech Pedestrians Dataset, which is accessible at https:/
 ### Preprocessing steps:
 The data is provided in a pre-split format, with separate .seq files for training and testing, along with corresponding annotation files in .vbb format.
 1. Convert the .vbb files into YOLO-compatible .txt label files with "parse_vbb_to_txt.py".
-2. Extract the video frames from the .seq files into .jpg images with "extract_frames_from_seq_edited.py".
+2. Extract the video frames from the .seq files into .jpg images with "extract_frames_from_seq.py".
 3. 
 
 ### Stuff you dont need to worry about:
