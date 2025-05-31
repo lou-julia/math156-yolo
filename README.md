@@ -8,6 +8,7 @@ The data is provided in a pre-split format, with separate .seq files for trainin
 1. "parse_vbb_to_txt.py": Convert the .vbb files into YOLO-compatible .txt label files
 2. "extract_frames_from_seq.py": Extract the video frames from the .seq files into .jpg images with
 3. "seq_to_jpg.ipynb": Further explanation of some steps used to convert the .seq frames to .jpg.
+4. "FINAL_DAS.ipynb": Further explanation and modified implementation of steps used to convert the .seq frames to .jpg.
 
 ### Model and Methodology - Simplified YOLOv5
 1. "YOLOv1_to_v5_overview.py" in the unused_code folder: Contains the code for the original YOLOv1 implementation that we used. However, we later moved on to a version of YOLOv5. An explanation of how we built upon YOLOv1 to create YOLOv5 is contained in this file.
