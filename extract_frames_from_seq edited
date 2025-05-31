@@ -15,7 +15,7 @@ def extract_frames_from_seq(seq_file, output_dir):
             continue
 
         # *********** Resize image to YOLO-compatible size ***********
-        frame = cv2.resize(frame, (640, 480))
+        frame = cv2.resize(frame, (640, 640))
 
         filename = os.path.join(output_dir, f"{base_name}_{count:05d}.jpg")
         cv2.imwrite(filename, frame)
