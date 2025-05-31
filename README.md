@@ -11,6 +11,9 @@ The data is provided in a pre-split format, with separate .seq files for trainin
 ### Model and Methodology - Simplified YOLOv5
 1. "YOLOv1_to_v5_overview.py" in the unused_code folder: Contains the code for the original YOLOv1 implementation that we used. However, we later moved on to a version of YOLOv5. An explanation of how we built upon YOLOv1 to create YOLOv5 is contained in this file.
 2. "yolov5" folder: the CNN Architecture we used to perform object detection.
+3. "train_official_loss.py": Custom training script for YOLOv5 pedestrian detection project using official loss.
+4. "new_custom_yolo_dataset.py: Simple dataset loader for YOLO-style images and labels.
+5. "infer.py": Custom inference script with annotation.
    
 ### Other code contained in the repository that was not mentioned:
 - YOLOv5 (All Caps) folder: Source code from the yolov5 repository. 
