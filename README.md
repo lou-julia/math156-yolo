@@ -8,5 +8,5 @@ The data is provided in a pre-split format, with separate .seq files for trainin
 
 ### Stuff you dont need to worry about:
 - YOLOv5 (All Caps) folder: Source code from the yolov5 repository. 
-- unused_code folder: Code that did not end up being used in the final report, meant to show thought processes and conceptual input as well as intellectual contributions.
+- unused_code folder: Code that did not end up being used in the final report, meant to show thought processes and conceptual input as well as highlight intellectual contributions that are not immediately demonstrated. 
 
