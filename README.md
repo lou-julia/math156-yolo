@@ -16,6 +16,7 @@ The data is provided in a pre-split format, with separate .seq files for trainin
 3. "train_official_loss.py": Custom training script for YOLOv5 pedestrian detection project using official loss.
 4. "new_custom_yolo_dataset.py: Simple dataset loader for YOLO-style images and labels.
 5. "infer.py": Custom inference script with annotation.
+6. "best.zip: File after training. 
    
 ### Other code contained in the repository that was not mentioned:
 - YOLOv5 (All Caps) folder: Source code from the yolov5 repository. 
