@@ -8,3 +8,5 @@ The data is provided in a pre-split format, with separate .seq files for trainin
 
 ### Stuff you dont need to worry about:
 YOLOv5 (All Caps): Source code from the yolov5 repo.
+penny_custom_yolo_dataset: This is a different version of new_custom_yolo_dataset, left in the repository to show thought processes
+
